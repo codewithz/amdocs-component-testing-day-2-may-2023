@@ -1,5 +1,6 @@
 package com.amdocs.componenttesting.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
@@ -11,12 +12,20 @@ public class Customer {
     private UUID id;
 
     @NotBlank
+    @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false,unique = true)
     @NotBlank
     private String phoneNumber;
 
     public Customer() {
+    }
+
+    public Customer(UUID id, String name, String phoneNumber) {
+        this.id=id;
+        this.name=name;
+        this.phoneNumber=phoneNumber;
     }
 
     public UUID getId() {
