@@ -1,13 +1,19 @@
 package com.amdocs.componenttesting.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
+@Entity
 public class Customer {
-
+    @Id
     private UUID id;
 
+    @NotBlank
     private String name;
 
+    @NotBlank
     private String phoneNumber;
 
     public Customer() {
